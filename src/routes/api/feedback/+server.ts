@@ -9,17 +9,17 @@ interface Feedback {
 export const POST: RequestHandler = async ({ request }) => {
 	try {
 		const feedback: Feedback = await request.json();
-		console.log('Feedback recibido:', feedback);
+		console.log('Feedback received:', feedback); // Log message in English
 
-		// Validar los datos
+		// Validate the data
 		if (!feedback.rating || !feedback.comment) {
-			return json({ error: 'Faltan datos requeridos' }, { status: 400 });
+			return json({ error: 'Required data is missing' }, { status: 400 }); // Error message in English
 		}
 
-		// No guardamos en una base de datos, solo imprimimos en la consola
+		// We don't store in a database, just log to the console
 		return json({ success: true }, { status: 200 });
 	} catch (error) {
-		console.error('Error al procesar el feedback:', error);
-		return json({ error: 'Error presed feedback' }, { status: 500 });
+		console.error('Error processing feedback:', error); // Log message in English
+		return json({ error: 'Error processing feedback' }, { status: 500 }); // Error message in English
 	}
 };

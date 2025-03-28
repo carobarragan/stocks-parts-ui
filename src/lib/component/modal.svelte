@@ -1,34 +1,34 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 
-	// Prop para controlar si el modal está abierto
+	// Prop to control modal visibility
 	export let isOpen: boolean = false;
 
-	// Estado del formulario
+	// Form state
 	let feedback = {
-		rating: 0, // Calificación (0 a 5)
-		comment: '' // Comentario
+		rating: 0, // Rating (0 to 5)
+		comment: '' // Comment
 	};
 
-	// Estado para manejar el hover de las estrellas
+	// State for star hover effect
 	let hoverRating: number = 0;
 
-	// Estado para manejar el envío
+	// State for submission handling
 	let isSubmitting: boolean = false;
 	let errorMessage: string = '';
 
-	// Función para cerrar el modal
+	// Function to close the modal
 	function closeModal(): void {
 		isOpen = false;
 		feedback = { rating: 0, comment: '' };
 		errorMessage = '';
 	}
 
-	// Función para enviar el feedback
+	// Function to submit feedback
 	async function submitFeedback(event: Event): Promise<void> {
 		event.preventDefault();
 		if (feedback.rating === 0) {
-			errorMessage = 'Por favor selecciona una calificación';
+			errorMessage = 'Please select a rating';
 			return;
 		}
 
@@ -45,20 +45,20 @@
 			});
 
 			if (!response.ok) {
-				throw new Error('Error al enviar el feedback');
+				throw new Error('Failed to submit feedback');
 			}
 
-			console.log('Feedback enviado con éxito:', feedback);
+			console.log('Feedback submitted successfully:', feedback); // Log in English
 			closeModal();
 		} catch (error: unknown) {
 			errorMessage =
-				error instanceof Error ? error.message : 'Ocurrió un error al enviar el feedback';
+				error instanceof Error ? error.message : 'An error occurred while submitting feedback';
 		} finally {
 			isSubmitting = false;
 		}
 	}
 
-	// Cerrar el modal al presionar la tecla Escape
+	// Close modal on Escape key press
 	onMount(() => {
 		const handleEscape = (event: KeyboardEvent): void => {
 			if (event.key === 'Escape' && isOpen) {
@@ -72,27 +72,27 @@
 
 <!-- Modal -->
 {#if isOpen}
-	<!-- Fondo oscuro -->
+	<!-- Dark overlay -->
 	<div class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
-		<!-- Contenedor del modal -->
+		<!-- Modal container -->
 		<div class="card p-6 w-full max-w-md bg-gray-800 text-white rounded-lg shadow-lg">
-			<!-- Encabezado del modal -->
+			<!-- Modal header -->
 			<header class="flex justify-between items-center mb-4">
 				<h2 class="text-2xl font-bold">Feedback</h2>
 				<button
 					class="btn variant-ghost rounded-full w-8 h-8 flex items-center justify-center"
 					on:click={closeModal}
-					aria-label="Cerrar modal"
+					aria-label="Close modal"
 				>
 					<span class="text-lg">×</span>
 				</button>
 			</header>
 
-			<!-- Formulario -->
+			<!-- Form -->
 			<form on:submit={submitFeedback}>
-				<!-- Calificación con estrellas -->
+				<!-- Rating with stars -->
 				<div class="mb-4">
-					<label class="block mb-1 text-sm font-medium">Calificación</label>
+					<label class="block mb-1 text-sm font-medium">Rating</label>
 					<div class="flex space-x-1">
 						{#each Array(5) as _, i}
 							<button
@@ -102,7 +102,7 @@
 								on:mouseenter={() => (hoverRating = i + 1)}
 								on:mouseleave={() => (hoverRating = 0)}
 								disabled={isSubmitting}
-								aria-label={`Calificar con ${i + 1} estrella${i + 1 === 1 ? '' : 's'}`}
+								aria-label={`Rate with ${i + 1} star${i + 1 === 1 ? '' : 's'}`}
 							>
 								<i
 									class="fas fa-star"
@@ -114,13 +114,13 @@
 					</div>
 				</div>
 
-				<!-- Comentario -->
+				<!-- Comment -->
 				<div class="mb-4">
-					<label for="comment" class="block mb-1 text-sm font-medium">Comentario</label>
+					<label for="comment" class="block mb-1 text-sm font-medium">Comment</label>
 					<textarea
 						id="comment"
 						bind:value={feedback.comment}
-						placeholder="Escribe tu comentario aquí..."
+						placeholder="Write your comment here..."
 						class="w-full h-24 bg-gray-700 text-white border border-blue-500 rounded-3xl p-3 focus:outline-none focus:border-blue-600"
 						required
 						disabled={isSubmitting}
@@ -131,7 +131,7 @@
 					<p class="text-red-500 mb-4">{errorMessage}</p>
 				{/if}
 
-				<!-- Botones -->
+				<!-- Buttons -->
 				<div class="flex justify-end space-x-2">
 					<button
 						type="button"
@@ -139,7 +139,7 @@
 						on:click={closeModal}
 						disabled={isSubmitting}
 					>
-						Cancelar
+						Cancel
 					</button>
 					<button
 						type="submit"
@@ -147,9 +147,9 @@
 						disabled={isSubmitting}
 					>
 						{#if isSubmitting}
-							Enviando...
+							Sending...
 						{:else}
-							Enviar
+							Submit
 						{/if}
 					</button>
 				</div>

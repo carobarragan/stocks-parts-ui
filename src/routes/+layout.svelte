@@ -10,12 +10,21 @@
 	// Componente del modal
 	import FeedbackModal from '../lib/component/modal.svelte';
 
+	// Importar el store de búsqueda
+	import { searchTerm } from '../lib/store/searchStore';
+
 	storePopup.set({ computePosition, autoUpdate, flip, shift, offset, arrow });
 
 	// Estado para el menú hamburguesa
 	let isMenuOpen: boolean = false;
 	// Estado para el modal de feedback
 	let isFeedbackModalOpen: boolean = false;
+
+	// Función para manejar el cambio en el input de búsqueda
+	function handleSearchInput(event: Event): void {
+		const target = event.target as HTMLInputElement;
+		$searchTerm = target.value; // Actualiza el store con el valor del input
+	}
 </script>
 
 <!-- App Shell -->
@@ -72,6 +81,8 @@
 							type="text"
 							placeholder="Buscar partes"
 							class="input w-full pl-10 bg-gray-700 text-white border-gray-600 focus:border-blue-500 rounded-md py-2 px-4"
+							on:input={handleSearchInput}
+							bind:value={$searchTerm}
 						/>
 					</div>
 

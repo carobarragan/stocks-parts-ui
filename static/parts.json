@@ -1,0 +1,162 @@
+[
+	{
+		"id": 1,
+		"name": "Filtro de aceite",
+		"category": "Motor",
+		"price": 15.99,
+		"brand": "Bosch",
+		"condition": "Nuevo"
+	},
+	{
+		"id": 2,
+		"name": "Bujía",
+		"category": "Motor",
+		"price": 5.99,
+		"brand": "NGK",
+		"condition": "Nuevo"
+	},
+	{
+		"id": 3,
+		"name": "Pastillas de freno",
+		"category": "Frenos",
+		"price": 29.99,
+		"brand": "Brembo",
+		"condition": "Usado"
+	},
+	{
+		"id": 4,
+		"name": "Amortiguador",
+		"category": "Suspensión",
+		"price": 89.99,
+		"brand": "Monroe",
+		"condition": "Nuevo"
+	},
+	{
+		"id": 5,
+		"name": "Batería",
+		"category": "Eléctrico",
+		"price": 99.99,
+		"brand": "Exide",
+		"condition": "Nuevo"
+	},
+	{
+		"id": 6,
+		"name": "Filtro de aire",
+		"category": "Motor",
+		"price": 12.5,
+		"brand": "Mann",
+		"condition": "Usado"
+	},
+	{
+		"id": 7,
+		"name": "Disco de freno",
+		"category": "Frenos",
+		"price": 45.0,
+		"brand": "Brembo",
+		"condition": "Nuevo"
+	},
+	{
+		"id": 8,
+		"name": "Bomba de agua",
+		"category": "Motor",
+		"price": 65.0,
+		"brand": "Gates",
+		"condition": "Nuevo"
+	},
+	{
+		"id": 9,
+		"name": "Correa de distribución",
+		"category": "Motor",
+		"price": 35.99,
+		"brand": "Dayco",
+		"condition": "Nuevo"
+	},
+	{
+		"id": 10,
+		"name": "Radiador",
+		"category": "Refrigeración",
+		"price": 120.0,
+		"brand": "Denso",
+		"condition": "Usado"
+	},
+	{
+		"id": 11,
+		"name": "Alternador",
+		"category": "Eléctrico",
+		"price": 150.0,
+		"brand": "Bosch",
+		"condition": "Nuevo"
+	},
+	{
+		"id": 12,
+		"name": "Líquido de frenos",
+		"category": "Frenos",
+		"price": 8.99,
+		"brand": "Motul",
+		"condition": "Nuevo"
+	},
+	{
+		"id": 13,
+		"name": "Suspensión delantera",
+		"category": "Suspensión",
+		"price": 200.0,
+		"brand": "KYB",
+		"condition": "Usado"
+	},
+	{
+		"id": 14,
+		"name": "Termostato",
+		"category": "Refrigeración",
+		"price": 25.0,
+		"brand": "Gates",
+		"condition": "Nuevo"
+	},
+	{
+		"id": 15,
+		"name": "Sensor de oxígeno",
+		"category": "Motor",
+		"price": 55.0,
+		"brand": "Bosch",
+		"condition": "Nuevo"
+	},
+	{
+		"id": 16,
+		"name": "Faros delanteros",
+		"category": "Iluminación",
+		"price": 40.0,
+		"brand": "Philips",
+		"condition": "Usado"
+	},
+	{
+		"id": 17,
+		"name": "Luz trasera",
+		"category": "Iluminación",
+		"price": 30.0,
+		"brand": "Osram",
+		"condition": "Nuevo"
+	},
+	{
+		"id": 18,
+		"name": "Bomba de combustible",
+		"category": "Motor",
+		"price": 80.0,
+		"brand": "Delphi",
+		"condition": "Nuevo"
+	},
+	{
+		"id": 19,
+		"name": "Junta de culata",
+		"category": "Motor",
+		"price": 45.0,
+		"brand": "Victor Reinz",
+		"condition": "Nuevo"
+	},
+	{
+		"id": 20,
+		"name": "Neumático",
+		"category": "Ruedas",
+		"price": 110.0,
+		"brand": "Michelin",
+		"condition": "Nuevo"
+	}
+]

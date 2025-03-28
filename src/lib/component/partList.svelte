@@ -1,17 +1,17 @@
 <script>
-	let viewMode = 'table'; // 'table' o 'cards'
+	let viewMode = 'table'; // 'table' or 'cards'
 	let parts = [
 		{
 			code: 'BRK-001',
-			name: 'Pastillas de freno',
-			category: 'Frenos',
+			name: 'Brake Pads',
+			category: 'Brakes',
 			brand: 'Toyota',
 			stock: 15,
 			price: 45.0
 		},
 		{
 			code: 'FLT-002',
-			name: 'Filtro de aceite',
+			name: 'Oil Filter',
 			category: 'Motor',
 			brand: 'Ford',
 			stock: 20,
@@ -19,8 +19,8 @@
 		},
 		{
 			code: 'TIR-003',
-			name: 'Llanta 205/55R16',
-			category: 'Llantas',
+			name: 'Tire 205/55R16',
+			category: 'Tires',
 			brand: 'Chevrolet',
 			stock: 8,
 			price: 120.0
@@ -29,26 +29,26 @@
 </script>
 
 <div class="p-4">
-	<!-- Botón para alternar vista -->
+	<!-- View toggle section -->
 	<div class="flex justify-between items-center mb-4">
-		<button class="btn variant-filled">Filtros</button>
+		<button class="btn variant-filled">Filters</button>
 		<button
 			class="btn variant-ghost"
 			on:click={() => (viewMode = viewMode === 'table' ? 'cards' : 'table')}
 		>
-			{viewMode === 'table' ? 'Vista de Tarjetas' : 'Vista de Tabla'}
+			{viewMode === 'table' ? 'Card View' : 'Table View'}
 		</button>
 	</div>
 
 	{#if viewMode === 'table'}
-		<!-- Vista de tabla -->
+		<!-- Table view -->
 		<div class="overflow-x-auto">
 			<table class="table w-full">
 				<thead>
 					<tr>
-						<th>Nombre</th>
-						<th>Precio</th>
-						<th>Acciones</th>
+						<th>Name</th>
+						<th>Price</th>
+						<th>Actions</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -58,8 +58,8 @@
 							<td>${part.price.toFixed(2)}</td>
 							<td>
 								<div class="flex space-x-2">
-									<button class="btn variant-filled">Editar</button>
-									<button class="btn variant-filled-error">Eliminar</button>
+									<button class="btn variant-filled">Edit</button>
+									<button class="btn variant-filled-error">Delete</button>
 								</div>
 							</td>
 						</tr>
@@ -68,15 +68,15 @@
 			</table>
 		</div>
 	{:else}
-		<!-- Vista de tarjetas -->
+		<!-- Card view -->
 		<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
 			{#each parts as part}
 				<div class="card p-4">
 					<h3 class="h3">{part.name}</h3>
-					<p><strong>Precio:</strong> ${part.price.toFixed(2)}</p>
+					<p><strong>Price:</strong> ${part.price.toFixed(2)}</p>
 					<div class="flex space-x-2 mt-2">
-						<button class="btn variant-filled">Editar</button>
-						<button class="btn variant-filled-error">Eliminar</button>
+						<button class="btn variant-filled">Edit</button>
+						<button class="btn variant-filled-error">Delete</button>
 					</div>
 				</div>
 			{/each}

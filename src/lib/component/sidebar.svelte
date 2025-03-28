@@ -4,15 +4,15 @@
 	let minPrice = '';
 	let maxPrice = '';
 	let condition = '';
-	let isSidebarOpen = false; // Para manejar el sidebar en pantallas pequeñas
+	let isSidebarOpen = false; // Controls sidebar visibility on small screens
 
 	const categories = [
 		{ value: 'motor', label: 'Motor' },
-		{ value: 'suspension', label: 'Suspensión' },
-		{ value: 'frenos', label: 'Frenos' },
-		{ value: 'llantas', label: 'Llantas' },
-		{ value: 'electricidad', label: 'Electricidad' },
-		{ value: 'carroceria', label: 'Carrocería' }
+		{ value: 'suspension', label: 'Suspension' },
+		{ value: 'brakes', label: 'Brakes' },
+		{ value: 'tires', label: 'Tires' },
+		{ value: 'electricity', label: 'Electricity' },
+		{ value: 'bodywork', label: 'Bodywork' }
 	];
 
 	const brands = [
@@ -23,13 +23,13 @@
 	];
 
 	const conditions = [
-		{ value: 'nuevo', label: 'Nuevo' },
-		{ value: 'usado', label: 'Usado' },
-		{ value: 'reacondicionado', label: 'Reacondicionado' }
+		{ value: 'new', label: 'New' },
+		{ value: 'used', label: 'Used' },
+		{ value: 'refurbished', label: 'Refurbished' }
 	];
 
 	function applyFilters() {
-		console.log('Filtros aplicados:', { category, brand, minPrice, maxPrice, condition });
+		console.log('Filters applied:', { category, brand, minPrice, maxPrice, condition }); // Log in English
 	}
 
 	function clearFilters() {
@@ -41,74 +41,74 @@
 	}
 </script>
 
-<!-- Botón para abrir el sidebar en pantallas pequeñas -->
+<!-- Button to open sidebar on small screens -->
 <button class="md:hidden btn variant-filled m-4" on:click={() => (isSidebarOpen = true)}>
-	Filtros
+	Filters
 </button>
 
 <!-- Sidebar -->
 <div class="fixed inset-0 z-50 {isSidebarOpen ? 'block' : 'hidden'} md:block md:static md:w-64">
-	<!-- Fondo oscuro para pantallas pequeñas -->
+	<!-- Dark overlay for small screens -->
 	<div
 		class="fixed inset-0 bg-black bg-opacity-50 md:hidden"
 		on:click={() => (isSidebarOpen = false)}
 	></div>
 
-	<!-- Contenido del sidebar -->
+	<!-- Sidebar content -->
 	<aside class="relative w-64 h-full p-4 bg-gray-800 text-white overflow-y-auto md:w-64">
-		<h2 class="h2 mb-4">Filtros</h2>
+		<h2 class="h2 mb-4">Filters</h2>
 
-		<!-- Categorías -->
+		<!-- Categories -->
 		<div class="mb-4">
-			<label for="category" class="block mb-1">Categoría</label>
+			<label for="category" class="block mb-1">Category</label>
 			<select id="category" bind:value={category} class="input">
-				<option value="">Selecciona una categoría</option>
+				<option value="">Select a category</option>
 				{#each categories as cat}
 					<option value={cat.value}>{cat.label}</option>
 				{/each}
 			</select>
 		</div>
 
-		<!-- Marca -->
+		<!-- Brand -->
 		<div class="mb-4">
-			<label for="brand" class="block mb-1">Marca</label>
+			<label for="brand" class="block mb-1">Brand</label>
 			<select id="brand" bind:value={brand} class="input">
-				<option value="">Selecciona una marca</option>
+				<option value="">Select a brand</option>
 				{#each brands as br}
 					<option value={br.value}>{br.label}</option>
 				{/each}
 			</select>
 		</div>
 
-		<!-- Rango de precios -->
+		<!-- Price Range -->
 		<div class="mb-4">
-			<label class="block mb-1">Rango de Precios</label>
+			<label class="block mb-1">Price Range</label>
 			<div class="flex space-x-2">
-				<input type="number" placeholder="Mínimo" bind:value={minPrice} class="input" />
-				<input type="number" placeholder="Máximo" bind:value={maxPrice} class="input" />
+				<input type="number" placeholder="Minimum" bind:value={minPrice} class="input" />
+				<input type="number" placeholder="Maximum" bind:value={maxPrice} class="input" />
 			</div>
 		</div>
 
-		<!-- Estado -->
+		<!-- Condition -->
 		<div class="mb-4">
-			<label for="condition" class="block mb-1">Estado</label>
+			<label for="condition" class="block mb-1">Condition</label>
 			<select id="condition" bind:value={condition} class="input">
-				<option value="">Selecciona un estado</option>
+				<option value="">Select a condition</option>
 				{#each conditions as cond}
 					<option value={cond.value}>{cond.label}</option>
 				{/each}
 			</select>
 		</div>
 
-		<!-- Botones -->
+		<!-- Buttons -->
 		<div class="flex space-x-2">
-			<button class="btn variant-filled" on:click={applyFilters}>Filtrar</button>
-			<button class="btn variant-ghost" on:click={clearFilters}>Limpiar</button>
+			<button class="btn variant-filled" on:click={applyFilters}>Filter</button>
+			<button class="btn variant-ghost" on:click={clearFilters}>Clear</button>
 		</div>
 
-		<!-- Botón para agregar nueva parte -->
+		<!-- Button to add new part -->
 		<div class="mt-4">
-			<button class="btn variant-filled-primary">+ Agregar Nueva Parte</button>
+			<button class="btn variant-filled-primary">+ Add New Part</button>
 		</div>
 	</aside>
 </div>
