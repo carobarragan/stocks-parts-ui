@@ -3,6 +3,9 @@ import prettier from 'eslint-config-prettier';
 import svelte from 'eslint-plugin-svelte';
 import globals from 'globals';
 import tseslint from 'typescript-eslint';
+import { createRequire } from 'module';
+
+const require = createRequire(import.meta.url);
 
 export default tseslint.config(
 	eslint.configs.recommended,

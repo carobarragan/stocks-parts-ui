@@ -83,7 +83,7 @@
 						</button>
 						<a
 							class="btn variant-filled-primary flex items-center space-x-2"
-							href="https://github.com/skeletonlabs/skeleton"
+							href="https://github.com/carobarragan/stocks-parts-ui"
 							target="_blank"
 							rel="noreferrer"
 						>
